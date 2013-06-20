@@ -1,0 +1,25 @@
+How to compile
+
+* Setup the following:
+IDA Pro with Hexrays Decompiler
+Python27: http://python.org/download/
+SWIG: http://www.swig.org/download.html
+
+* Python and swig must be in your PATH.
+
+* Visual Studio environment variables:
+
+PATH += C:\Program Files\Microsoft Visual Studio 10.0\VC\bin
+PATH += C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE
+
+INCLUDE += C:\Program Files\Microsoft Visual Studio 10.0\VC\include
+INCLUDE += C:\Program Files\Microsoft SDKs\Windows\v7.0A\Include
+
+LIB += C:\Program Files\Microsoft Visual Studio 10.0\VC\lib
+LIB += C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib
+
+* IDA/Hexrays environment variables:
+
+IDA = C:\idasdk61
+INCLUDE += C:\idasdk61\include
+INCLUDE += C:\IDA61\plugins\hexrays_sdk
