@@ -76,14 +76,13 @@ bool HexraysPython_Init(void)
     return true;
   
   if( !init_hexrays_plugin(0) ) {
-    msg("HexraysPython: init hexrays fail.\n");
     hexdsp = NULL;
     return false;
   }
   
   {
     const char *hxver = get_hexrays_version();
-    msg("HexraysPython: Hex-rays version %s has been detected\n", hxver);
+    msg("hexrays-python: Hex-rays version %s has been detected\n", hxver);
   }
   
 #ifdef Py_DEBUG
@@ -95,7 +94,7 @@ bool HexraysPython_Init(void)
 
   if ( !Py_IsInitialized() )
   {
-    warning("IDAPython: Py_Initialize() failed");
+    warning("hexrays-python: Py_Initialize() failed");
     return false;
   }
 
