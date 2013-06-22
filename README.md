@@ -9,6 +9,11 @@ This is an IDA Pro plugin which provides python bindings around the Hexrays Deco
 
 This project largely reuse the foundation provided by IDAPython (build scripts, swig rules, etc). 
 
+### Downloads:
+
+* IDA 6.3: [hexrays-python-0.9.0_ida6.3_py2.7_win32.zip](http://goo.gl/l9ULb)
+* IDA 6.4: ...
+
 ### Quick start
 
 Load any database where the decompiler is available (x86 or ARM assembly), and go to IDA's interactive interpreter (in the output window).
