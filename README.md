@@ -11,8 +11,13 @@ This project largely reuse the foundation provided by IDAPython (build scripts, 
 
 ### Downloads:
 
-* IDA 6.3: [hexrays-python-0.9.0_ida6.3_py2.7_win32.zip](http://goo.gl/l9ULb)
+Windows:
 * IDA 6.4: [hexrays-python-0.9.0_ida6.4_py2.7_win32.zip](http://goo.gl/bDVhD)
+* IDA 6.3: [hexrays-python-0.9.0_ida6.3_py2.7_win32.zip](http://goo.gl/l9ULb)
+
+Linux:
+* IDA 6.4: [hexrays-python-0.9.0_ida6.4_py2.7_linux.zip](http://goo.gl/vnRwT)
+* IDA 6.3: [hexrays-python-0.9.0_ida6.3_py2.7_linux.zip](http://goo.gl/9hUSc)
 
 ### Quick start
 
