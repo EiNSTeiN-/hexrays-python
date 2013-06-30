@@ -125,6 +125,17 @@ bool PyW_GetNumber(PyObject *py_var, uint64 *num, bool *is_64 = NULL)
 $result = PyLong_FromUnsignedLongLong((unsigned long long) $1);
 }
 
+%typemap(in) uint64
+{
+  uint64 $1_temp;
+  if ( !PyW_GetNumber($input, &$1_temp) )
+  {
+    PyErr_SetString(PyExc_TypeError, "Expected an uint64 type");
+    return NULL;
+  }
+  $1 = $1_temp;
+}
+
 // some defines to calm SWIG down.
 #define DEFINE_MEMORY_ALLOCATION_FUNCS()
 //#define DECLARE_UNCOPYABLE(f)
@@ -289,7 +300,11 @@ class qlist_cinsn_t_iterator {};
 %extend qlist<cinsn_t> {
     qlist_cinsn_t_iterator begin() { return self->begin(); }
     qlist_cinsn_t_iterator end(void) { return self->end(); }
+    qlist_cinsn_t_iterator insert(qlist_cinsn_t_iterator p, const cinsn_t& x) { return self->insert(p, x); }
+    void erase(qlist_cinsn_t_iterator p) { self->erase(p); }
 };
+%ignore qlist< cinsn_t >::insert();
+%ignore qlist< cinsn_t >::erase();
 %ignore qlist< cinsn_t >::begin();
 %ignore qlist< cinsn_t >::begin() const;
 %ignore qlist< cinsn_t >::end();
@@ -943,6 +958,62 @@ def cblock_iter(self):
     
     return
 cblock_t.__iter__ = cblock_iter
+cblock_t.__len__ = cblock_t.size
+
+# cblock.find(cinsn_t) -> returns the iterator positioned at the given item
+def cblock_find(self, item):
+    
+    iter = self.begin()
+    for i in range(self.size()):
+        if iter.cur == item:
+            return iter
+        iter.next()
+    
+    return
+cblock_t.find = cblock_find
+
+# cblock.index(cinsn_t) -> returns the index of the given item
+def cblock_index(self, item):
+    
+    iter = self.begin()
+    for i in range(self.size()):
+        if iter.cur == item:
+            return i
+        iter.next()
+    
+    return
+cblock_t.index = cblock_index
+
+# cblock.at(int) -> returns the item at the given index index
+def cblock_at(self, index):
+    
+    iter = self.begin()
+    for i in range(self.size()):
+        if i == index:
+            return iter.cur
+        iter.next()
+    
+    return
+cblock_t.at = cblock_at
+
+# cblock.remove(cinsn_t)
+def cblock_remove(self, item):
+    
+    iter = self.find(item)
+    self.erase(iter)
+    
+    return
+cblock_t.remove = cblock_remove
+
+# cblock.insert(index, cinsn_t)
+def cblock_insert(self, index, item):
+    
+    pos = self.at(index)
+    iter = self.find(pos)
+    self.insert(iter, item)
+    
+    return
+cblock_t.insert = cblock_insert
 
 def cfunc___str__(self):
     qs = qstring()
