@@ -6,7 +6,8 @@
 // available.
 //
 // Author: EiNSTeiN_ <einstein@g3nius.org>
-//
+// Copyright (C) 2013 ESET
+// 
 // Original copyright notice retained below:
 //---------------------------------------------------------------------
 //

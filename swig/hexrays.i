@@ -2,7 +2,9 @@
 // SWIG bindings for Hexray Decompiler's hexrays.hpp
 //
 // Author: EiNSTeiN_ <einstein@g3nius.org>
+// Copyright (C) 2013 ESET
 //
+// See COPYING for license information.
 //---------------------------------------------------------------------
 
 #ifdef WITH_HEXRAYS
