@@ -867,7 +867,7 @@ def citem_to_specific_type(self):
     elif self.op >= cit_empty and self.op < cit_end:
         return self.cinsn
     
-    raise RuntimeError('unknown op type')
+    raise RuntimeError('unknown op type %s' % (repr(self.op), ))
 citem_t.to_specific_type = property(citem_to_specific_type)
 
 """ array used for translating cinsn_t->op type to their names. """
