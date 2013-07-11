@@ -795,7 +795,7 @@ class DecompilationFailure(Exception):
 
 def decompile(ea, hf=None):
     
-    if type(ea) == int:
+    if isinstance(ea, (int, long)):
         func = idaapi.get_func(ea)
         if not func: return
     elif type(ea) == idaapi.func_t:
