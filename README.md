@@ -3,6 +3,10 @@ Python bindings for the Hexrays Decompiler
 
 Author: EiNSTeiN_ <einstein@g3nius.org>
 
+### Note: this plugin has been merged into IDAPython.
+
+Get the latest version here: https://code.google.com/p/idapython/
+
 ### What is this?
 
 This is an IDA Pro plugin which provides python bindings around the Hexrays Decompiler SDK API.
@@ -10,6 +14,8 @@ This is an IDA Pro plugin which provides python bindings around the Hexrays Deco
 This project largely reuse the foundation provided by IDAPython (build scripts, swig rules, etc). 
 
 ### Downloads:
+
+**For latest release, see IDAPython: https://code.google.com/p/idapython/**
 
 Windows:
 * IDA 6.4: [hexrays-python-0.9.0_ida6.4_py2.7_win32.zip](http://goo.gl/bDVhD)
