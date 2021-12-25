@@ -195,7 +195,7 @@ class MSVCBuilder(BuilderBase):
 
 
 def build_distribution(manifest, distrootdir, ea64, nukeold):
-    """ Create a distibution to a directory and a ZIP file """
+    """ Create a distribution to a directory and a ZIP file """
     # (Re)create the output directory
     if os.path.exists(distrootdir):
         if nukeold:
